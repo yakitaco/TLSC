@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sData.cs" />
     <Compile Include="tData.cs" />
     <Compile Include="uData.cs" />
     <EmbeddedResource Include="Form1.resx">
