@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace TLSC {
     // ステージデータ
-    class sData {
+    public class sData {
         static byte[] magic = { 0xA5, 0xF9 };
         static byte version = 0x01;
 
@@ -66,8 +66,9 @@ namespace TLSC {
 
                 // ユニット情報
                 //int unitNum = data[cnt];
+                int uIdx = cnt; // ユニット数格納インデックス
                 cnt++;
-                int uNum = 0;
+                int uNum = 0; // ユニット数
                 for (int i = 0; i < x; i++) {
                     for (int j = 0; j < y; j++) {
                         if (uMap[i,j] > -1) {
@@ -79,6 +80,7 @@ namespace TLSC {
                         }
                     }
                 }
+                data[uIdx] = (byte)uNum;
 
                 // ゴール条件
                 data[cnt] = (byte)goalType;
@@ -89,7 +91,6 @@ namespace TLSC {
                 //ファイルを作成して書き込む
                 //バイト型配列の内容をすべて書き込む
                 Stream fileStream = sfd.OpenFile();
-                byte[] bs = new byte[] { 0x44, 0x4f, 0x42, 0x4f, 0x4e, 0x2e, 0x4e, 0x45, 0x54 };
                 fileStream.Write(data, 0, cnt);
                 //閉じる
                 fileStream.Close();

@@ -28,11 +28,17 @@ namespace TLSC {
             listBox1.Items.Clear();
             if (type == 0) {
                 foreach (tData cd in tData.tList) {
-                    listBox1.Items.Add(cd.name);
+                    //listBox1.Items.Add(cd.name);
+                    listBox1.Items.Add(String.Format("{0:X2} : {1}", cd.id, cd.name));
                 }
             } else if (type == 1) {
                 foreach (uData ud in uData.uList) {
-                    listBox1.Items.Add(ud.name);
+                    //listBox1.Items.Add(ud.name);
+                    if (ud.id > -1) {
+                        listBox1.Items.Add(String.Format("{0:X2} : {1}", ud.id, ud.name));
+                    } else {
+                        listBox1.Items.Add(String.Format("NONE"));
+                    }
                 }
             }
             listBox1.SelectedIndex = 0;
@@ -123,6 +129,10 @@ namespace TLSC {
 
         private void button2_Click(object sender, EventArgs e) {
             sD.save();
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            bool ret = gForm.ShowMiniForm(ref sD);　//Form2を開く
         }
     }
 

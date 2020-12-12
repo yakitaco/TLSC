@@ -14,9 +14,9 @@ namespace TLSC {
         public Color c;
         
         static tData(){
-            tList.Add(new tData("test", 0x00, Color.FromArgb(200, 200, 200)));
-            tList.Add(new tData("test", 0x01, Color.FromArgb(100, 200, 200)));
-            tList.Add(new tData("test", 0x02, Color.FromArgb(200, 200, 100)));
+            tList.Add(new tData("通路", 0x00, Color.FromArgb(200, 250, 250)));
+            tList.Add(new tData("壁"  , 0x01, Color.FromArgb(200, 200, 100)));
+            tList.Add(new tData("test", 0x02, Color.FromArgb(100, 100, 100)));
         }
 
         public tData(String _name, int _id, Color _c) {
